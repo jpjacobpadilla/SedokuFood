@@ -1,0 +1,188 @@
+{% extends 'outline.html' %}
+{% block title %}
+Sedoku food
+{% endblock %}
+
+{% block content %}
+<div id="section1">
+    <h2>Spread out your food budget <i>evenly</i> <br>across the week</h2>
+    <a class="button-to-product" href="{{url_for('dishfinder')}}">Try it Now!</a>
+</div>
+
+<div id="section2-background">
+    <div id="section2-text-container">
+        <h3>Our recommendor is powered by</h3>
+        <h2>3,416,537</h2>
+        <h3>data&ndash;points</h3>
+    </div>
+</div>
+
+<div id="section3-background">
+    <div id="section3-text-container">
+        <h2>We take into account</h2>
+        <div id="sec3-3items-flexcontainer">
+            <div class="sec3-whatweoffer-element el1">
+                <img src="{{url_for('static', filename='images/Icons/star-icon.png')}}">
+                <h4>Restaurant<br>Rating</h4>
+            </div>
+            <div class="sec3-whatweoffer-element el2">
+                <img src="{{url_for('static', filename='images/Icons/chef.png')}}">
+                <h4>Your Cuisine<br>Prefrences</h4>
+            </div>
+            <div class="sec3-whatweoffer-element el1">
+                <img src="{{url_for('static', filename='images/Icons/location-icon.png')}}">
+                <h4>Price and<br>Location</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="section4-background">
+    <div id="section4-container">
+        <h2>Figure out your ideal budget</h2>
+        <div id="section4-main-content">
+            <form id="form-create-budget">
+                <div id="form-income-section">
+                    <label>Enter your yearly income:</label>
+                    <input class="budget-calc-form-input" type="text" id="income-for-budgeter" placeholder="$xxx,xxx">
+                </div>
+                <div id="budget-form-part-2">
+                    <label>What percent of your income would you like to spend on food?</label>
+                    <div id="budget-percent-option-container">
+                        <div>
+                            <input class="budget-calc-form-input-radio" name="percent-of-income" type="radio" value="5">
+                            <label for="5">5%</label><br>
+                        </div>
+                        <div>
+                            <input class="budget-calc-form-input-radio" name="percent-of-income" type="radio" value="10">
+                            <label for="10">10%</label><br>
+                        </div>
+                        <div>
+                            <input class="budget-calc-form-input-radio" name="percent-of-income" type="radio" value="15">
+                            <label for="15">15%</label><br>
+                        </div>
+                        <div>
+                            <input class="budget-calc-form-input-radio" name="percent-of-income" type="radio" cvalue="20">
+                            <label for="20">20%</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="budget-calc-output">
+                    <span>You should spend an average of &#160;</span>
+                    <output>$xx</output>
+                    <span> &#160; per day</span>
+                </div>
+            </form>
+            <p id="budget-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </div>
+    </div>
+</div> -->
+
+<div id="section4-background">
+    <div id="section4-container">
+        <h2>Our database has over 200 cuisine types</h2>
+        <div id="section4-2-main-content">
+            <div>
+                <p class="s4f-1">Korean</p>
+                <p class="s4f-2">Japanese</p>
+                <p class="s4f-3">Mediterranean</p>
+                <p class="s4f-4">American</p>
+                <p class="s4f-5">Filipino</p>
+                <p class="s4f-6">Persian</p>
+                <p class="s4f-7">Greek</p>
+                <p class="s4f-8">Tex-Mex</p>
+                <p class="s4f-9">Italian</p>
+                <p class="s4f-10">Coffee & Tea</p>
+                <p class="s4f-11">Middle Eastern</p>
+                <p class="s4f-12">Desserts</p>
+                <p class="s4f-13">Portuguese</p>
+                <p class="s4f-14">Senegalese</p>
+                <p class="s4f-15">Pizza</p>
+            </div>
+            <div>
+                <p class="s4f-1">Steakhouses</p>
+                <p class="s4f-2">Cajun</p>
+                <p class="s4f-3">Shanghainese</p>
+                <p class="s4f-4">Szechuan</p>
+                <p class="s4f-5">Mexican</p>
+                <p class="s4f-6">Thai</p>
+                <p class="s4f-7">Sushi Bars</p>
+                <p class="s4f-8">Chinese</p>
+                <p class="s4f-9">Beer Bar</p>
+                <p class="s4f-10">Bakeries</p>
+                <p class="s4f-11">Cafes</p>
+                <p class="s4f-12">Spanish</p>
+                <p class="s4f-13">Vietnamese</p>
+                <p class="s4f-14">Turkish</p>
+                <p class="s4f-15">Wine Bars</p>
+            </div>
+            <div>
+                <p class="s4f-1">Indian</p>
+                <p class="s4f-2">Seafood</p>
+                <p class="s4f-3">Egyptian</p>
+                <p class="s4f-4">Afghan</p>
+                <p class="s4f-5">Dim Sum</p>
+                <p class="s4f-6">Lebanese</p>
+                <p class="s4f-7">Dominican</p>
+                <p class="s4f-8">Austrian</p>
+                <p class="s4f-9">Cuban</p>
+                <p class="s4f-10">Latin American</p>
+                <p class="s4f-11">Vegan</p>
+                <p class="s4f-12">Ethiopian</p>
+                <p class="s4f-13">Hookah Bars</p>
+                <p class="s4f-14">Irish</p>
+                <p class="s4f-15">Southern</p>
+            </div>
+            <div>
+                <p class="s4f-1">Peruvian</p>
+                <p class="s4f-2">Kosher</p>
+                <p class="s4f-3">German</p>
+                <p class="s4f-4">Argentine</p>
+                <p class="s4f-5">Venezuelan</p>
+                <p class="s4f-6">Brazilian</p>
+                <p class="s4f-7">Australian</p>
+                <p class="s4f-8">Hawaiian</p>
+                <p class="s4f-9">Russian</p>
+                <p class="s4f-10">Scandinavian</p>
+                <p class="s4f-11">Georgian</p>
+                <p class="s4f-12">Somali</p>
+                <p class="s4f-13">Salvadoran</p>
+                <p class="s4f-14">Sri Lankan</p>
+                <p class="s4f-15">Teppanyaki</p>
+            </div>
+            <div>
+                <p class="s4f-1">Indonesian</p>
+                <p class="s4f-2">French</p>
+                <p class="s4f-3">Taiwanese</p>
+                <p class="s4f-4">Belgian</p>
+                <p class="s4f-5">Puerto Rican</p>
+                <p class="s4f-6">Moroccan</p>
+                <p class="s4f-7">Vegetarian</p>
+                <p class="s4f-8">Caribbean</p>
+                <p class="s4f-9">Cambodian</p>
+                <p class="s4f-10">Pakistani</p>
+                <p class="s4f-11">Polish</p>
+                <p class="s4f-12">Haitian</p>
+                <p class="s4f-13">British</p>
+                <p class="s4f-14">Izakaya</p>
+                <p class="s4f-15">Poke</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="section5-background">
+    <div id="section5-content">
+        <h2>Give us a try!</h2>
+        <div id="section5-buttons">
+            <a class="button-to-product" href="{{url_for('dishfinder')}}">Dish Finder</a>
+            <a class="button-to-product second-button-sec5" href="{{url_for('exploreourdatabase')}}">Explore Our Database</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

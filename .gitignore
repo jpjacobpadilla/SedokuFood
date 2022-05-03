@@ -1,0 +1,4 @@
+.idea/
+__pycache__/
+.ds_store
+project_secrets.py

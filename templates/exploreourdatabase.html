@@ -1,0 +1,101 @@
+{% extends 'outline.html' %}
+{% block title %}
+Our Database
+{% endblock %}
+
+{% block content%}
+<div id="database-page-content">
+    <div id="nyc-rest-header-div">
+        <img id="nyc-rest-header-bg" src="{{url_for('static', filename='images/banner-background.png')}}">
+        <h1 id="nyc-rest-header">NYC Restaurants</h1>
+    </div>
+
+    <div id="data-graphs-image-container">
+        <div>
+            <h2>Average Price Per Restaurant</h2>
+            <img src="{{url_for('static', filename='images/avgrest_per_zipcode_plot.png')}}">
+        </div>
+        <div>
+            <h2>Restaurants in our Database</h2>
+            <img src="{{url_for('static', filename='images/avgprice_and_map_plot.png')}}">
+        </div>
+    </div>
+    
+    <div id="reaserch-your-zipcode-container">
+        <h2 id="zipcode-text-head">Want to know more about the restaurants in your ZIP?</h2>
+        <form id="reaserch-zipcode-form">
+            <label>Enter your zipcode</label>
+            <input id="zipcode-text" class="numeric-form-input" type="text" maxlength="5" min="5" placeholder="10001" autocomplete="off">
+            <input class="p-submit" type="submit" value="Search">
+        </form>
+    </div>
+    <div id="reaserch-your-zipcode-output-container" style="display: none;">
+        <div id="zipcode-output-display">
+            <h2>Zipcode</h2>
+            <div id="zipcode-numbers-output-display">
+                <h2 id="zc-output-1">1</h2>
+                <h2 id="zc-output-2">1</h2>
+                <h2 id="zc-output-3">1</h2>
+                <h2 id="zc-output-4">1</h2>
+                <h2 id="zc-output-5">1</h2>
+            </div>
+        </div>
+        <div id="zipcode-data-container-output-display">
+            <div>
+                <h3 class="zipcode-output-display-label">Restaurant Count</h3>
+                <h3 class="zipcode-output-display-data" id="rest-count-output">1</h3>
+            </div>
+            <div>
+                <h3 class="zipcode-output-display-label">Average Price</h3>
+                <h3 class="zipcode-output-display-data" id="avg-price-output">1</h3>
+            </div>
+            <div>
+                <h3 class="zipcode-output-display-label">Average Rating</h3>
+                <h3 class="zipcode-output-display-data" id="avg-rating-output">1</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="no-zipcode-data-ed" class="no-zipcode-data" style="display: none;">
+        <h3>Uh Oh! We don't have any data on <span id="no-data-zip"></span> in our database :(</h3>
+    </div>
+</div>
+<div id="extra-space-db-page-ed">&nbsp;</div>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+    $('#reaserch-zipcode-form').on('submit', function(event) {
+        $.ajax({
+            data : {
+                zipcode : $('#zipcode-text').val()
+            },
+            type : 'POST',
+            url : '/explorezipcodeprocess'
+        })
+        .done(function(data) {
+            if (data.answer) {
+                $('#zc-output-1').text(data.zp1);
+                $('#zc-output-2').text(data.zp2);
+                $('#zc-output-3').text(data.zp3);
+                $('#zc-output-4').text(data.zp4);
+                $('#zc-output-5').text(data.zp5);
+
+                $('#rest-count-output').text(data.rest_count_output);
+                $('#avg-price-output').text(data.avg_price_output);
+                $('#avg-rating-output').text(data.avg_rating_output);
+
+                $('#reaserch-your-zipcode-output-container').show();
+                $('#no-zipcode-data-ed').hide();
+            }
+            else {
+                $('#no-data-zip').text(data.fullzip);
+
+                $('#reaserch-your-zipcode-output-container').hide();
+                $('#no-zipcode-data-ed').show();
+            }
+        });
+
+        event.preventDefault();
+    })
+</script>
+{% endblock %}

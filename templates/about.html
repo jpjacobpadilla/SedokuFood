@@ -1,0 +1,49 @@
+{% extends 'outline.html' %}
+{% block title %}
+About Us
+{% endblock %}
+
+{% block content%}
+<div id="about-content-container">
+    <div>
+        <h2 class="about-section-header">Overarching Goal</h2>
+        <div class="main-text-container">
+            <p>
+                We aim to provide our users with a personalized schedule of dishes which meets their budgeting goals.
+                This includes consistently updating user preferences, and improving our reccomender system.
+            </p>
+        </div>
+    </div>
+    <div>
+        <h2 class="about-section-header">Key Features</h2>
+        <div class="main-text-container">
+            <p>
+                To obtain the 3 million data points, our team scraped data from menupages.com. This provided us with
+                dishes from over 4,000 restaurants in New York City. Additionally, we utilized Yelp’s API to futher
+                refine our restaurant’s information.
+            </p>
+        </div>
+    </div>
+    <div>
+        <h2 class="about-section-header">Data Sources</h2>
+        <div class="main-text-container">
+            <p>
+                In addition to providing users with a personalized weekly schedule, our platform also consistently
+                updates users’ preferences every week through the food rating feature. This provides us with data which
+                allows the recommender system to better cluster restaurants and make more accurate
+                predictions on user preferences.
+            </p>
+        </div>
+    </div>
+    <div">
+        <h2 class="about-section-header">Motivation Behind Project</h2>
+        <div class="main-text-container">
+            <p>
+                As college students, we found ourselves overspending on food. From frequently ordering in, to
+                frequenting too many restaurants every weekend, we needed help. However, there was no platform which
+                merged, and prioritized, budgeting needs and user preferences. Thus, we decided to make Sedoku ourselves.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

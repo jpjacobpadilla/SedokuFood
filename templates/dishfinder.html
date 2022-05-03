@@ -1,0 +1,249 @@
+{% extends 'outline.html' %}
+{% block title %}
+Dish Finder
+{% endblock %}
+
+{% block content%}
+<form id="dishfinder-main-form">
+    <div  class="speach-bubble bubble-bottom-left">
+        <p>Input your food prefrences so I can recommend you a food schedule!</p>
+    </div>
+    <div id="dishfinder-background-mainoptions-container">
+        <img id="burger-pointing-img" src="{{url_for('static', filename='images/Icons/burger-pointing.png')}}">
+        
+        <div class="dishfinder-one-input-container">
+            <h2>What is your zipcode?</h2>
+            <div>
+                <input id="input-What-is-your-zipcode" class="numeric-form-input" type="text" maxlength="5" min="1" placeholder="10001" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="dishfinder-one-input-container">
+            <h2>What is your budget for eating out in the week?</h2>
+            <div>
+                <input id="What-is-your-budget-for-eating-out-in-the-week" class="numeric-form-input" type="text" maxlength="5" min="1" placeholder="$250" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="dishfinder-one-input-container">
+            <h2>How many times would you like to eat out in one week?</h2>
+            <div class="form-slider-container">
+                <input id="input-for-how-many-times-to-eat-out-per-week" value=7 type="range" min="1" max="7" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">7</output>
+            </div>
+        </div>
+
+        <div class="dishfinder-one-input-container">
+            <h2>Do you like to eat the same food often? (10 = yes)</h2>
+            <div class="form-slider-container">
+                <input id="food_uq" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+
+        <div class="dishfinder-one-input-container">
+            <h2>How many miles are you willing to travel for food?</h2>
+            <div class="form-slider-container">
+                <input id="input-distance-to-walk" type="range" value="2" step="0.5" min="1" max="5" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">2</output>
+            </div>
+        </div>
+    </div>
+
+    <div id="explanation-of-image-form-options">
+        <h2>Please rate how these images look on a scale from 1-10</h2>
+        <h3>If you want to jump through your screen to take a bite of it, rate it a 10!</h3>
+        <h3>If you think it looks disgusting, that's a 0 :(</h3>
+    </div>
+
+    <div id="image-cusine-container">
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/burgers.jpeg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-burger" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/Steamed-Egg-Custard.jpg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-dimsum" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/fava-ravioli-bowl2.jpg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-pasta" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/bar_food.jpeg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-alcohol" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/Pastry_baking-processes.jpeg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-croissant" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/hummus-fattet-feature.jpg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-me" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/lobster-roll-instagram.jpg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-lr" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/hr-food.jpeg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-hr" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/IMG_7655d_1-2.jpeg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-miscr" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/best-somalipaul.jpg')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-ethnic" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+        <div class="one-image-container">
+            <img class="cusine-image-picker" src="{{url_for('static', filename='images/cusine-images/taco-cusine-type.png')}}">
+            <div class="cusine-image-buttons">
+                <input id="cusine-image-tacos" type="range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">5</output>
+            </div>
+        </div>
+    </div>
+    <div id="submit-container">
+        <h1>Make Your Schedule Now!</h1>
+        <input id="generate-it-button" type="submit" value="Generate it!" class="p-submit">
+    </div>
+</form>
+
+<div id="search-loading-display-container"  style="display: none;">
+    <h2>Loading...</h2>
+    <img src="{{url_for('static', filename='images/Icons/loading-burger.gif')}}">
+</div>
+
+<div id="horizontal-scroll-container" style="display: none;">
+    <div id="output-df-contaienr"></div>
+</div>
+<!--
+     <div class="dish-item">
+            <div class="dish-item-container">
+                <div class="output-dish-info-div">
+                    <p class="output-text-p1">Steamed Egg Custard Bun</p>
+                    <p class="output-text-p2"><i>price:</i> $10.00</p>
+                    <p class="output-text-p3"><i>From:</i></p>
+                    <p class="output-text-p4">Golden Steamer</p>
+                    <p class="output-text-p5"><i>Address:</i></p>
+                    <p class="output-text-p6">143A Mott St, New York, NY 10013</p>
+                </div>
+                <div class="rate-dish-output">
+                    <p>Rate This Dish</p>
+                    <div class="emoji-container">
+                        <a class="emoji-like-or-dislike">&#x1F44E;</a>
+                        <a class="emoji-like-or-dislike">&#x1F44D;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+<div id="error-message-container" class="no-zipcode-data" style="display: none;">
+    <h3 id="error-message-js"></h3>
+</div>
+
+<div id="extra-space-db-page-df">&nbsp;</div>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+    $('#dishfinder-main-form').on('submit', function(event) {
+
+        $('#horizontal-scroll-container').hide();
+        $('#error-message-container').hide()
+        $('#search-loading-display-container').show();
+
+        $.ajax({
+            data : {
+                zipcode : $('#input-What-is-your-zipcode').val(),
+                budget : $('#What-is-your-budget-for-eating-out-in-the-week').val(),
+                days_to_eat_out : $('#input-for-how-many-times-to-eat-out-per-week').val(),
+                food_uq : $('#food_uq').val(),
+                travel_dist : $('#input-distance-to-walk').val(),
+                american : $('#cusine-image-burger').val(),
+                asian : $('#cusine-image-dimsum').val(),
+                euro : $('#cusine-image-pasta').val(),
+                bar : $('#cusine-image-alcohol').val(),
+                b_c : $('#cusine-image-croissant').val(),
+                me : $('#cusine-image-me').val(),
+                healthy : $('#cusine-image-hr').val(),
+                misc : $('#cusine-image-miscr').val(),
+                ethnic : $('#cusine-image-ethnic').val(),
+                latin : $('#cusine-image-tacos').val(),
+                seafood : $('#cusine-image-lr').val()
+            },
+            type : 'POST',
+            url : '/dishfinderalgo'
+        })
+        .done(function(data) {
+            $('#search-loading-display-container').hide();
+
+            if (data.answer) {
+                for (let i = 0; i < data.prices.length; i++) {
+                    $('#output-df-contaienr').append(
+                        '<div class="dish-item">\
+                            <div class="dish-item-container">\
+                                <div class="output-dish-info-div">\
+                                    <p class="output-text-p1">'+data.dishes[i]+'</p>\
+                                    <p class="output-text-p2"><i>price: </i>'+data.prices[i]+'</p>\
+                                    <p class="output-text-p3"><i>From:</i></p>\
+                                    <p class="output-text-p4">'+data.restaurant_names[i]+'</p>\
+                                    <p class="output-text-p5"><i>Address:</i></p>\
+                                    <p class="output-text-p6">'+data.addresses[i]+'</p>\
+                                </div>\
+                                <div class="rate-dish-output">\
+                                    <p>Rate This Dish</p>\
+                                    <div class="emoji-container">\
+                                        <a class="emoji-like-or-dislike">&#x1F44E;</a>\
+                                        <a class="emoji-like-or-dislike">&#x1F44D;</a>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>'
+                    );
+                }
+
+                $('#horizontal-scroll-container').show();
+                $('#generate-it-button').val('Generate Again!');
+            }
+            else {
+                $('#error-message-js').text(data.error_msg);
+                $('#error-message-container').show();
+            }
+        });
+
+        event.preventDefault();
+    })
+</script>
+{% endblock %}
