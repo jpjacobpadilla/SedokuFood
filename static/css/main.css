@@ -869,7 +869,7 @@ input[type=range]:focus {
     text-align: center;
 }
 
-#reaserch-zipcode-form{
+#reaserch-zipcode-form {
     margin: 3rem;
     display: flex;
     flex-direction: row;
@@ -996,11 +996,183 @@ input[type=range]:focus {
     #image-cusine-container {
         grid-template-columns: 1fr 1fr;
     }
+
+    .form-slider-container {
+        margin-left: -4rem;
+    }
+
+    .dishfinder-one-input-container {
+        flex-direction: column;
+    }
+
+    input[type=range] {
+        margin: 0;
+        padding-right: 3rem;
+    }
+
+    .speach-bubble, .bubble-bottom-left {
+        background-color: white;
+        width: 80%;
+    }
+
+    .bubble-bottom-left::before {
+        display: none;
+    }
+
+    .speach-bubble p{
+        color: var(--warmred);
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    #explanation-of-image-form-options {
+        margin: 0 2rem 2rem 0;
+    }
+
+    #search-loading-display-container {
+        margin: 5rem 2rem 6rem 2rem;
+        column-gap: .5rem;
+        flex-direction: column;
+    }
+
+    /* HEADER */
+    .header-nav ul {
+        margin-left: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .header-nav ul li a {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 500px) {
     #image-cusine-container {
         grid-template-columns: 1fr;
     }
-}
 
+    #section1 h2 {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    #section1 {
+        padding-bottom: 9rem;
+    }
+
+    #section2-text-container h3 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    #section2-text-container h2 {
+        font-size: 3rem;
+    }
+
+    #section2-background {
+        padding-top: 4rem;
+        padding-bottom: 11rem;
+    }
+
+    #section3-text-container h2{
+        font-size: 3.5rem;
+    }
+
+    #section3-background {
+        padding-bottom: 14rem;
+    }
+
+    #section3-text-container  {
+        padding: 0 2rem 0 2rem;
+    }
+
+    #thirdrd-img-whatweoffer {
+        margin-top: -7rem;
+    }
+
+    #data-graphs-image-container {
+        flex-direction: column;
+    }
+
+    #data-graphs-image-container img {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #data-graphs-image-container div h2 {
+        margin-top: 3rem;
+    } 
+
+    #top-data-graphs-img {
+        margin-top: -3.5rem;
+    }
+
+    #nyc-rest-header-bg {
+        display: none;
+    }
+
+    #nyc-rest-header {
+        position: relative;
+        margin-top: 4rem;
+        color: var(--warmred);
+    }
+
+    #reaserch-your-zipcode-container,
+    #reaserch-your-zipcode-output-container {
+        margin: 3rem .5rem 0rem .5rem;
+        padding: 2rem;
+    }
+
+    #zipcode-text-head {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    #reaserch-zipcode-form {
+        margin: 2.5rem .8rem 2.5rem .8rem;
+        column-gap: .3rem;
+    }
+
+    #reaserch-zipcode-form label {
+        font-size: 1rem;
+    }
+
+    #zipcode-output-display  {
+        font-size: 1.5rem;
+    }
+
+    #zipcode-output-display h2,
+    .zipcode-output-display-label {
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    #zipcode-numbers-output-display {
+        column-gap: .35rem;
+    }
+
+    .zipcode-output-display-data {
+        margin: .5rem;
+    }
+
+    .no-zipcode-data {
+        font-size: 1rem;
+        margin: .5rem;
+    }
+
+    .dishfinder-one-input-container h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .numeric-form-input {
+        margin: 0;
+    }
+
+}   
