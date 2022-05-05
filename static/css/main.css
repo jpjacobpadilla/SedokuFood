@@ -774,6 +774,11 @@ input[type=range]:focus {
 
 .emoji-like-or-dislike {
     font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.span-price-container {
+    font-weight: 700;
 }
 
 .output-text-p2 {
@@ -783,11 +788,13 @@ input[type=range]:focus {
 
 .output-text-p1 {
     margin-bottom: 0.7rem;
+    font-weight: 700;
 }
 
 .output-text-p4 {
     margin-top: 0.4rem;
     margin-bottom: .8rem;
+    font-weight: 700;
 }
 
 .output-text-p3 {
@@ -796,6 +803,7 @@ input[type=range]:focus {
 
 .output-text-p6 {
     margin-top: 0.4rem;
+    font-weight: 700;
 }
 
 .output-text-p5 {
