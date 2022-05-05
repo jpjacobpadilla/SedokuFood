@@ -777,6 +777,15 @@ input[type=range]:focus {
     font-weight: 500;
 }
 
+.emoji-like-or-dislike:hover {
+    opacity: 65%;
+    cursor: pointer;
+}
+
+.emoji-like-or-dislike:active {
+    font-size: 1.9rem;
+}
+
 .span-price-container {
     font-weight: 700;
 }
