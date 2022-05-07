@@ -57,7 +57,7 @@ def dish_rec_main(request, db):
     discount_factor_raw = int(request.form['food_uq'])
     user_zip_location = str(request.form['zipcode'])
     user_distance_preference = int(request.form['travel_dist'])
-    input_splurge_func : int(request.form['input_splurge_func'])
+    input_splurge_func = int(request.form['input_splurge_func'])
 
     american_rating = int(request.form['american'])
     asian_rating = int(request.form['asian'])
