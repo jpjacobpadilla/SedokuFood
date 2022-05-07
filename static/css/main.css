@@ -6,12 +6,12 @@
 
 body {
     margin: 0rem;
-    padding-top: 3.45rem;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
 }
 
 /*Header*/
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,27 +25,6 @@ header {
     background-color: rgb(253, 253, 253);
     height: 3.45rem;
     z-index: 9999;
-}
-
-#logo-container img{
-    width: 3.5rem;
-    margin-right: .1rem;
-}
-
-#logo-container a{
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    background: -webkit-linear-gradient(var(--warmred), var(--mainorange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    font-family: 'Jua', sans-serif;
-    font-size: 1.8rem;
-    padding-top: .3rem;
 }
 
 .header-nav {
@@ -84,6 +63,139 @@ header {
     color: var(--mainorange);
     font-weight: 500;
     font-size: 1.3rem;
+} */
+
+/* HEADER: In MS5 I designed my own header, but I decided to copy 
+a template so I could easily make the menu resposnive.
+The responsive header was heavily based off of this example: 
+https://codepen.io/mutedblues/pen/MmPNPG*/
+.header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 0px;
+    padding: .3rem .3rem 0rem .3rem;
+}
+
+.header ul {
+    margin: 0 1rem 0 .1rem;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.header li {
+    margin: 1rem;
+}
+
+.header li a {
+    display: block;
+    text-decoration: none;
+    color: var(--mainorange);
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+/* menu */
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .menu-icon .navicon {
+    background: var(--mainorange);
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: var(--mainorange);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+/*Logo for header*/
+.header .logo a h1{
+    margin: 0 auto;
+}
+
+.header .logo a img{
+    width: 3.5rem;
+    margin-right: .1rem;
+}
+
+.header .logo a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo {
+    background: -webkit-linear-gradient(var(--warmred), var(--mainorange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.8rem;
 }
 
 /*Section 1*/
@@ -504,6 +616,10 @@ header {
 }
 
 /* Dish Finder Page*/
+#dishfinder-main-form {
+    margin-top: 7rem;
+}
+
 .speach-bubble {
     position: relative;
     font-family: sans-serif;
@@ -822,7 +938,7 @@ input[type=range]:focus {
 
 /* Database page*/
 #database-page-content {
-    margin-top: 3rem;
+    margin-top: 7rem;
 }
 
 #nyc-rest-header-div {
@@ -1067,34 +1183,6 @@ input[type=range]:focus {
     #section4-background {
         display: none;
     }
-
-    /* HEADER */
-    /* header {
-        padding: 0;
-    }
-
-    .header-nav {
-        position: fixed;
-        background-color: var(--mainorange);
-        width: 100%;
-        margin-top: 13.7rem;
-    }
-
-    .header-nav ul {
-        padding: 0;
-    }
-
-    .header-nav ul li  {
-        display: block;
-        text-align: center;
-        margin: .5rem;
-    }
-
-    .header-nav ul li a{
-        color: white;
-        font-size: 1.9rem;
-      } */
-
 }
 
 @media (max-width: 500px) {
@@ -1103,8 +1191,8 @@ input[type=range]:focus {
     }
 
     #section1 h2 {
-        font-size: 1.6rem;
-        margin-bottom: 3rem;
+        font-size: 2rem;
+        margin: 0 .5rem 3rem .5rem;
     }
 
     #section1 {
@@ -1262,3 +1350,52 @@ input[type=range]:focus {
         font-size: 2rem;
     }
 }
+
+@media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+
+    .header li {
+        margin: 1rem;
+    }
+
+    .header li a {
+      padding: 0;
+    }
+
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+
+    .header ul li{
+        display: inline-block;
+        position: relative;
+        transition: text-decoration 10s;
+        cursor: pointer;
+    }
+    
+    .header ul li::after {
+        content: '';
+        position: absolute;
+        bottom: -.1rem;
+        left: 0;
+        width: 100%;
+        height: 0.15rem;
+        background-color: var(--mainorange);
+        opacity: 0;
+        transition: opacity 300ms, transform 300ms;
+    }
+    
+    
+    .header ul li:hover::after {
+      opacity: 1;
+      transform: translate3d(0, -.02rem, 0);
+    }
+  }
+  

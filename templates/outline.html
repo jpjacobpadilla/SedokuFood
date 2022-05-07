@@ -11,28 +11,27 @@
         <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">       
     </head>
     <body>
-        <header>
-            <div id="logo-container">
+        <header class="header">
+            <div class="logo">
                 <a href="/">
                     <img src="{{url_for('static', filename='images/Icons/buruger-logo-orangecolor.png')}}">
                     <h1 class="logo">Sedoku.</h1>
                 </a>
             </div>
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="{{url_for('dishfinder')}}">Build My Schedule</a></li>
-                    <li><a href="{{url_for('exploreourdatabase')}}">Our Database</a></li>
-                    <li><a href="{{url_for('about')}}">About</a></li>
-                </ul>
-            </nav>
 
-            <div class="phone-menu-exit" style='display: none;'><h1>&#10005;</h1></div>
-
-            <div class="phone-menu-button" style='display: none;'>
-                <div class='pmb-p1'></div>
-                <div class='pmb-p2'></div>
-                <div class='pmb-p3'></div>
-            </div>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+                <li>
+                        <a class="header-nav-a" href="{{url_for('dishfinder')}}">Build My Schedule</a>
+                </li>
+                <li>
+                        <a class="header-nav-a" href="{{url_for('exploreourdatabase')}}">Our Database</a>
+                </li>
+                <li>
+                        <a class="header-nav-a" href="{{url_for('about')}}">About</a>
+                </li>
+            </ul>
         </header>
 
         {% block content%}{% endblock %}
