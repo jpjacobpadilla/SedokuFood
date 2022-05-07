@@ -48,6 +48,14 @@ Dish Finder
                 <output class="slider-output-display">2</output>
             </div>
         </div>
+
+        <div class="dishfinder-one-input-container">
+            <h2>How often do you want to splurge on food? (In percent)</h2>
+            <div class="form-slider-container">
+                <input id="input-splurge-func" type="range" value="0" step="1" min="0" max="50" oninput="this.nextElementSibling.value = this.value">
+                <output class="slider-output-display">0</output>
+            </div>
+        </div>
     </div>
 
     <div id="explanation-of-image-form-options">
@@ -191,6 +199,7 @@ Dish Finder
                 days_to_eat_out : $('#input-for-how-many-times-to-eat-out-per-week').val(),
                 food_uq : $('#food_uq').val(),
                 travel_dist : $('#input-distance-to-walk').val(),
+                input_splurge_func : $('#input-splurge-func').val(),
                 american : $('#cusine-image-burger').val(),
                 asian : $('#cusine-image-dimsum').val(),
                 euro : $('#cusine-image-pasta').val(),

@@ -103,11 +103,10 @@ def dishfinderalgo():
                     'addresses': addresses
                         })
 
-
 @app.route('/dishfinder', methods=['GET'])
 def dishfinder():
     return render_template('dishfinder.html')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

@@ -1045,8 +1045,18 @@ input[type=range]:focus {
     }
 
     #explanation-of-image-form-options {
-        margin: 0 2rem 2rem 0;
+        margin: 0 4% 2rem 4%;
     }
+
+    #explanation-of-image-form-options h2{
+       font-size: 2rem;
+    }
+
+
+    #explanation-of-image-form-options h3{
+        font-size: 1rem;
+        font-weight: 500;
+     }
 
     #search-loading-display-container {
         margin: 5rem 2rem 6rem 2rem;
@@ -1054,19 +1064,37 @@ input[type=range]:focus {
         flex-direction: column;
     }
 
+    #section4-background {
+        display: none;
+    }
+
     /* HEADER */
-    .header-nav ul {
-        margin-left: .5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    /* header {
         padding: 0;
     }
 
-    .header-nav ul li a {
-        font-size: 1rem;
+    .header-nav {
+        position: fixed;
+        background-color: var(--mainorange);
+        width: 100%;
+        margin-top: 13.7rem;
     }
+
+    .header-nav ul {
+        padding: 0;
+    }
+
+    .header-nav ul li  {
+        display: block;
+        text-align: center;
+        margin: .5rem;
+    }
+
+    .header-nav ul li a{
+        color: white;
+        font-size: 1.9rem;
+      } */
+
 }
 
 @media (max-width: 500px) {
@@ -1076,11 +1104,11 @@ input[type=range]:focus {
 
     #section1 h2 {
         font-size: 1.6rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     #section1 {
-        padding-bottom: 9rem;
+        padding: 7rem 0;
     }
 
     #section2-text-container h3 {
@@ -1091,6 +1119,7 @@ input[type=range]:focus {
     #section2-text-container h2 {
         font-size: 4rem;
         margin: 0;
+        letter-spacing: normal;
     }
 
     #section2-background {
@@ -1146,6 +1175,11 @@ input[type=range]:focus {
     #reaserch-your-zipcode-output-container {
         margin: 3rem .5rem 0rem .5rem;
         padding: 2rem;
+        border-radius: 2.5rem;
+    }
+
+    #reaserch-your-zipcode-container label {
+        text-align: center;
     }
 
     #zipcode-text-head {
@@ -1155,7 +1189,7 @@ input[type=range]:focus {
 
     #reaserch-zipcode-form {
         margin: 2.5rem .8rem 2.5rem .8rem;
-        column-gap: .3rem;
+        column-gap: .75rem;
     }
 
     #reaserch-zipcode-form label {
@@ -1164,6 +1198,7 @@ input[type=range]:focus {
 
     #zipcode-output-display  {
         font-size: 1.5rem;
+        column-gap: 1.4rem;
     }
 
     #zipcode-output-display h2,
@@ -1174,7 +1209,7 @@ input[type=range]:focus {
     }
 
     #zipcode-numbers-output-display {
-        column-gap: .35rem;
+        column-gap: .25rem;
     }
 
     .zipcode-output-display-data {
@@ -1189,10 +1224,41 @@ input[type=range]:focus {
     .dishfinder-one-input-container h2 {
         font-size: 1.5rem;
         text-align: center;
+
     }
 
     .numeric-form-input {
         margin: 0;
     }
 
+    #section5-content h2{
+        padding: 0 2rem;
+        font-size: 3rem;
+    }
+
+    #dishfinder-background-mainoptions-container {
+        margin: 10rem 1rem 2rem 1rem;
+    }
+
+    #submit-container {
+        margin: 0 1.3rem;
+    }
+
+    #horizontal-scroll-container {
+        margin: 3rem 2% 0 2%;
+    }
+
+    #no-zipcode-data-ed {
+        margin-top: 1.2rem;
+    }
 }   
+
+@media (max-width: 380px) {
+    #zipcode-output-display {
+        column-gap: .4rem;
+    }
+
+    .speach-bubble p{
+        font-size: 2rem;
+    }
+}

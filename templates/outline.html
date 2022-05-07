@@ -25,6 +25,14 @@
                     <li><a href="{{url_for('about')}}">About</a></li>
                 </ul>
             </nav>
+
+            <div class="phone-menu-exit" style='display: none;'><h1>&#10005;</h1></div>
+
+            <div class="phone-menu-button" style='display: none;'>
+                <div class='pmb-p1'></div>
+                <div class='pmb-p2'></div>
+                <div class='pmb-p3'></div>
+            </div>
         </header>
 
         {% block content%}{% endblock %}
