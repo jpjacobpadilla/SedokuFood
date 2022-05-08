@@ -778,8 +778,11 @@ input[type=range]:focus {
     outline: none;
 }
 
-/*About 20% of the following block of css I got from a website*/
-input[type="radio"] {
+/*Initially I created my own radio-button styling,
+ but it only worked on chrome browsers, 
+ so i copied about 50% of 
+ the radio button styiling from online*/
+/* input[type="radio"]{
     appearance: none;
     background-color: var(--mainyellow);
     color: var(--warmred);
@@ -789,7 +792,6 @@ input[type="radio"] {
     border-radius: 50%;
     transform: translateY(-0.075rem);
     cursor: pointer;
-    position: relative;
 }
 
 input[type="radio"]:checked::after {
@@ -822,7 +824,66 @@ input[type="radio"]:checked::after {
     align-items: center;
     column-gap: .7rem;
     margin: 0 2rem;
-}
+} */
+.radio-button-container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    column-gap: .1rem;
+    margin: 0 0 .9rem 0;
+} 
+
+.single-rb-container input {
+    position: absolute;
+    cursor: pointer;
+    visibility: hidden;
+  }
+.single-rb-container label {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: .3rem 0 0 1rem;
+    display: flex;
+  }    
+  .single-rb-container label span {
+   padding-left: 3.3rem;
+   margin-top: .5rem;
+  }
+
+.single-rb-container input[type="radio"]:before {
+    content: " ";
+    display: block;
+    background-color: var(--mainyellow);
+    border: .3rem solid var(--warmred);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100px;
+    margin: 0 1rem 1rem 0;
+    visibility: initial;
+  }
+
+.single-rb-container input[type="radio"]:after {
+    content: " ";
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100px;
+    position: absolute;
+    top: .555rem;
+    left: .555rem;
+    visibility: initial;
+    background-color: var(--mainyellow);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+.single-rb-container input[type="radio"]:hover:after {
+    background-color: rgb(238, 163, 92);
+  }
+
+.single-rb-container input[type="radio"]:checked:after {
+    background-color: var(--warmred);
+  }
+/*end of radio button css*/
 
 #submit-container {
     margin-bottom: 5rem;
@@ -1383,6 +1444,11 @@ input[type="radio"]:checked::after {
 
     #no-zipcode-data-ed {
         margin-top: 1.2rem;
+    }
+    .radio-button-container {
+        flex-direction: column;
+        row-gap: .3rem;
+        align-items: baseline;
     }
 }   
 
