@@ -778,6 +778,52 @@ input[type=range]:focus {
     outline: none;
 }
 
+/*About 20% of the following block of css I got from a website*/
+input[type="radio"] {
+    appearance: none;
+    background-color: var(--mainyellow);
+    color: var(--warmred);
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.2rem solid var(--warmred);
+    border-radius: 50%;
+    transform: translateY(-0.075rem);
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--warmred);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-button-container div label {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+.single-rb-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.radio-button-container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    column-gap: .7rem;
+    margin: 0 2rem;
+}
+
 #submit-container {
     margin-bottom: 5rem;
 }
@@ -934,7 +980,6 @@ input[type=range]:focus {
 .output-text-p5 {
     margin-bottom: 0.4rem;
 }
-/*output*/
 
 /* Database page*/
 #database-page-content {

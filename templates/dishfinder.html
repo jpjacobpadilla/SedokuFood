@@ -50,10 +50,20 @@ Dish Finder
         </div>
 
         <div class="dishfinder-one-input-container">
-            <h2>How often do you want to splurge on food? (In percent)</h2>
-            <div class="form-slider-container">
-                <input id="input-splurge-func" type="range" value="0" step="1" min="0" max="50" oninput="this.nextElementSibling.value = this.value">
-                <output class="slider-output-display">0</output>
+            <h2>How often do you want to splurge on food?</h2>
+            <div class="radio-button-container">
+                <div class="single-rb-container">
+                    <input type="radio" class="splurge-button" name="splurge-function" value ="0">
+                    <label>0%</label>
+                </div>
+                <div class="single-rb-container">
+                    <input type="radio" class="splurge-button" name="splurge-function" value=".33">
+                    <label>33%</label>
+                </div>
+                <div class="single-rb-container">
+                    <input type="radio" class="splurge-button" name="splurge-function" value=".50">
+                    <label>50%</label>
+                </div>
             </div>
         </div>
     </div>
@@ -199,7 +209,7 @@ Dish Finder
                 days_to_eat_out : $('#input-for-how-many-times-to-eat-out-per-week').val(),
                 food_uq : $('#food_uq').val(),
                 travel_dist : $('#input-distance-to-walk').val(),
-                input_splurge_func : $('#input-splurge-func').val(),
+                input_splurge_func : $('input[name="splurge-function"]:checked').val(),
                 american : $('#cusine-image-burger').val(),
                 asian : $('#cusine-image-dimsum').val(),
                 euro : $('#cusine-image-pasta').val(),
