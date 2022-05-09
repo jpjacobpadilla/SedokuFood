@@ -21,7 +21,7 @@ Dish Finder
         <div class="dishfinder-one-input-container">
             <h2>What is your budget for eating out in the week?</h2>
             <div>
-                <input id="What-is-your-budget-for-eating-out-in-the-week" class="numeric-form-input" type="text" maxlength="5" min="1" placeholder="$250" autocomplete="off">
+                <input id="What-is-your-budget-for-eating-out-in-the-week" class="numeric-form-input" type="text" maxlength="3" min="2" placeholder="$250" autocomplete="off">
             </div>
         </div>
 
@@ -234,6 +234,12 @@ Dish Finder
         .done(function(data) {
             $('#search-loading-display-container').hide();
 
+            // const boxes = document.querySelectorAll('#dish-item');
+
+            // boxes.forEach(box => {
+            //     box.remove();
+            // });
+
             if (data.answer) {
                 for (let i = 0; i < data.prices.length; i++) {
                     $('#output-df-contaienr').append(
@@ -241,7 +247,7 @@ Dish Finder
                             <div class="dish-item-container">\
                                 <div class="output-dish-info-div">\
                                     <p class="output-text-p1">'+data.dishes[i]+'</p>\
-                                    <p class="output-text-p2"><i>price: </i><span class="span-price-container">'+data.prices[i]+'</span></p>\
+                                    <p class="output-text-p2"><i>price: $</i><span class="span-price-container">'+data.prices[i]+'</span></p>\
                                     <p class="output-text-p3"><i>From:</i></p>\
                                     <p class="output-text-p4">'+data.restaurant_names[i]+'</p>\
                                     <p class="output-text-p5"><i>Address:</i></p>\

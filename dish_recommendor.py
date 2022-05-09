@@ -1,3 +1,4 @@
+from decimal import Decimal
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -58,8 +59,7 @@ def dish_rec_main(request, db):
     discount_factor_raw = int(request.form['food_uq'])
     user_zip_location = str(request.form['zipcode'])
     user_distance_preference = int(request.form['travel_dist'])
-    input_splurge_func = request.form['input_splurge_func']
-    print(input_splurge_func)
+    input_splurge_func = float(request.form['input_splurge_func'])
     american_rating = int(request.form['american'])
     asian_rating = int(request.form['asian'])
     european_rating = int(request.form['euro'])
@@ -158,7 +158,13 @@ def dish_rec_main(request, db):
     all_dishes = all_dishes[['rest_id', 'dish_name', 'price']]
 
 
-    #---#
+    #connected to splurge_user
+    #can't splurge if days_eating_out is less than or equal to 2 days.
+    splurge_num_days = int(days_eating_out*input_splurge_func)
+    splurge_list = [False] * days_eating_out
+    for i in range(splurge_num_days):
+        splurge_list[i] = True
+
     remaining_budget = user_budget
     remaining_days_eating_out = days_eating_out
     final_dish_df = pd.DataFrame()
@@ -166,12 +172,15 @@ def dish_rec_main(request, db):
 
     filtered_location = filter_location(all_restaurant_query, distance_df, user_zip_location, user_distance_preference)
 
-    for cuisine in cuisine_rec:
+    for i, cuisine in enumerate(cuisine_rec):
         filtered_cuisine = filter_cuisine(filtered_location, cuisine)
         merged_restaurant_dishes = get_restaurant_all_dishes(filtered_cuisine, all_dishes) #merge restaurant with dishes
-        max_daily_budget = remaining_budget/remaining_days_eating_out#change prices
-
-        filtered_price = filter_dish_price(merged_restaurant_dishes, max_daily_budget) #filter by price
+        max_daily_budget = remaining_budget/remaining_days_eating_out #change prices
+        ##splurge
+        if splurge_list[i] == True:
+            filtered_price = filter_dish_price(merged_restaurant_dishes, max_daily_budget * 2)
+        else:
+            filtered_price = filter_dish_price(merged_restaurant_dishes, max_daily_budget) #filter by price
 
         top_rating = filtered_price.nlargest(int(len(filtered_price)/5), 'rating') # subsample top 20% highest rating dish/restaurants
         top_rating.drop(top_rating[top_rating['rest_id'].isin(picked_restaurant_rest_id)].index,inplace = True) #remove picked restaurants from dataset.
