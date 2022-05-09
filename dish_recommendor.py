@@ -10,6 +10,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from sklearn import model_selection
 from IPython import display
+from flask import  jsonify
 
 
 def filter_location(df, distance_df, user_zip_location, distance):
@@ -57,8 +58,8 @@ def dish_rec_main(request, db):
     discount_factor_raw = int(request.form['food_uq'])
     user_zip_location = str(request.form['zipcode'])
     user_distance_preference = int(request.form['travel_dist'])
-    input_splurge_func = int(request.form['input_splurge_func'])
-
+    input_splurge_func = request.form['input_splurge_func']
+    print(input_splurge_func)
     american_rating = int(request.form['american'])
     asian_rating = int(request.form['asian'])
     european_rating = int(request.form['euro'])
@@ -183,11 +184,12 @@ def dish_rec_main(request, db):
         remaining_days_eating_out -= 1
 
     final_dish_df.reset_index(drop = True, inplace = True)
-    #---#
-    #Return data in json format
-    dishes = list(final_dish_df.dish_name)
-    prices = list(final_dish_df.price)
-    restaurant_names = list(final_dish_df.name)
-    addresses = list(final_dish_df.address)
 
-    return dishes, prices, restaurant_names, addresses, valid_resp, err_msg
+    #Return data in json format
+    return jsonify ({'answer': valid_resp,
+                    'error_msg': err_msg,
+                    'dishes': list(final_dish_df.dish_name),
+                    'prices': list(final_dish_df.price),
+                    'restaurant_names': list(final_dish_df.name),
+                    'addresses': list(final_dish_df.address)
+                        })
