@@ -44,7 +44,7 @@ Dish Finder
         <div class="dishfinder-one-input-container">
             <h2>How many miles are you willing to travel for food?</h2>
             <div class="form-slider-container">
-                <input id="input-distance-to-walk" type="range" value="2" step="0.5" min="1" max="5" oninput="this.nextElementSibling.value = this.value">
+                <input id="input-distance-to-walk" type="range" value="2" step="1" min="1.0" max="5.0" oninput="this.nextElementSibling.value = this.value">
                 <output class="slider-output-display">2</output>
             </div>
         </div>
@@ -198,14 +198,14 @@ Dish Finder
     <h3 id="error-message-js"></h3>
 </div>
 
-<div id="graph-header-container">
+<div id="graph-header-container" style="display: none;">
     <h2>Your Schedule Visualized</h2>
     <div id="color-desc-gh">
         <p>Restaurants in your schedule</p>
         <p>Your estimated location</p>
     </div>
 </div>
-<div id="graph-container"></div>
+<div id="graph-container" style="display: none;"></div>
 
 <div id="extra-space-db-page-df">&nbsp;</div>
 
@@ -280,10 +280,12 @@ Dish Finder
 
                 $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
                 $('#graph-header-container').show();
+                $('#graph-header-container').show();
             }
             else {
                 $('#error-message-js').text(data.error_msg);
                 $('#error-message-container').show();
+                $('#graph-header-container').hide();
                 $('#graph-header-container').hide();
             }
         });

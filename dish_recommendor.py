@@ -7,12 +7,12 @@ import torch
 from flask import  jsonify
 import pickle
 
-# from geopy.geocoders import Nominatim
-# import geopandas as gpd
-# from matplotlib.figure import Figure
-# import pgeocode
-# import base64
-# from io import BytesIO
+from geopy.geocoders import Nominatim
+import geopandas as gpd
+from matplotlib.figure import Figure
+import pgeocode
+import base64
+from io import BytesIO
 
 
 NN_model = pickle.load(open('model.pkl', 'rb'))
