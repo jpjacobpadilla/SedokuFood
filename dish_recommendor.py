@@ -7,6 +7,14 @@ import torch
 from flask import  jsonify
 import pickle
 
+# from geopy.geocoders import Nominatim
+# import geopandas as gpd
+# from matplotlib.figure import Figure
+# import pgeocode
+# import base64
+# from io import BytesIO
+
+
 NN_model = pickle.load(open('model.pkl', 'rb'))
 
 def filter_location(df, distance_df, user_zip_location, distance):
@@ -89,7 +97,6 @@ def dish_rec_main(request, db):
 
     try:
         query_result = db.session.execute(query_string).fetchall()
-        print(query_result)
     except:
         err_msg = 'Uh Oh! Something went wrong while verifing your inputs :('
         return jsonify ({'answer': False, 'error_msg': err_msg}) 
@@ -188,13 +195,20 @@ def dish_rec_main(request, db):
 
         final_dish_df.reset_index(drop = True, inplace = True)
 
+        # Check to make sure there is an output
+        if len(list(final_dish_df.dish_name)) == 0:
+            return ({'answer': False,
+                 'error_msg': 'Uh Oh! Our neural network could not find any dishes. Try changing your input.'})
+
         #Return data in json format
+        addresses = list(final_dish_df.address)
         return jsonify ({'answer': True,
                         'error_msg': '',
                         'dishes': list(final_dish_df.dish_name),
                         'prices': list(final_dish_df.price),
                         'restaurant_names': list(final_dish_df.name),
-                        'addresses': list(final_dish_df.address)
+                        'addresses': addresses,
+                        'location_map': location_map(addresses)
                             })
     
     except Exception as e:
@@ -202,3 +216,39 @@ def dish_rec_main(request, db):
         return ({'answer': False,
                  'error_msg': err_msg})
 
+def location_map(addresses):
+    #getting coordinates of our locations
+    geolocator = Nominatim(user_agent="school project app")
+    x_coordinates = []
+    y_coordinates = []
+    for address in addresses:
+        geodata = geolocator.geocode(f'{address}, New York City, NY')
+        y_coordinates.append(geodata.raw.get("lat"))
+        x_coordinates.append(geodata.raw.get("lon"))
+
+    x_coordinates = [float(x) for x in x_coordinates]
+    y_coordinates = [float(y) for y in y_coordinates]
+
+    nomi = pgeocode.Nominatim('us')
+    user_zip_query = nomi.query_postal_code(user_zip_location)
+
+    map_df = pd.DataFrame({'LONGITUDE' : x_coordinates, 'LATITUDE': y_coordinates})
+
+    #creating base map of df_nyc
+    df_nyc = gpd.GeoDataFrame.from_file('nyc-neighborhoods.geojson')
+    base = df_nyc.plot(linewidth=0.5, color='White',edgecolor = 'Grey', figsize = (15,10))
+    map_plot = map_df.plot (kind='scatter', 
+        x = 'LONGITUDE', y = 'LATITUDE',
+        figsize = (10, 7.5),
+        s = 30, alpha = 1, color = [(248/256, 110/256, 81/256)], ax = base, edgecolor='face') #red
+    
+    fig = Figure()
+    map_plot = fig.scatter(x = user_zip_query['longitude'], y = user_zip_query['latitude'], s = 30, color = 'green') #[(249/256,221/256,112/256)])
+    map_plot.axis('off')
+    
+    # Save it to a temporary buffer
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+
+    return base64.b64encode(buf.getbuffer()).decode("ascii")
+    # https://matplotlib.org/3.5.0/gallery/user_interfaces/web_application_server_sgskip.html

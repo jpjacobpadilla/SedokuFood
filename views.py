@@ -52,5 +52,6 @@ def dishfinderalgo():
     json_resp =  dish_recommendor.dish_rec_main(request, db)
     return json_resp
 
+
 if __name__ == '__main__':
     app.run(debug=True)

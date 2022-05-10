@@ -198,6 +198,15 @@ Dish Finder
     <h3 id="error-message-js"></h3>
 </div>
 
+<div id="graph-header-container">
+    <h2>Your Schedule Visualized</h2>
+    <div id="color-desc-gh">
+        <p>Restaurants in your schedule</p>
+        <p>Your estimated location</p>
+    </div>
+</div>
+<div id="graph-container"></div>
+
 <div id="extra-space-db-page-df">&nbsp;</div>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
@@ -205,8 +214,9 @@ Dish Finder
     $('#dishfinder-main-form').on('submit', function(event) {
 
         $('#horizontal-scroll-container').hide();
-        $('#error-message-container').hide()
+        $('#error-message-container').hide();
         $('#search-loading-display-container').show();
+        $('#graph-header-container').hide();
 
         $.ajax({
             data : {
@@ -234,11 +244,11 @@ Dish Finder
         .done(function(data) {
             $('#search-loading-display-container').hide();
 
-            // const boxes = document.querySelectorAll('#dish-item');
+            const dish = Array.from(document.getElementsByClassName('dish-item'));
 
-            // boxes.forEach(box => {
-            //     box.remove();
-            // });
+            dish.forEach(d => {
+            d.remove();
+            });
 
             if (data.answer) {
                 for (let i = 0; i < data.prices.length; i++) {
@@ -267,10 +277,14 @@ Dish Finder
 
                 $('#horizontal-scroll-container').show();
                 $('#generate-it-button').val('Generate Again!');
+
+                $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
+                $('#graph-header-container').show();
             }
             else {
                 $('#error-message-js').text(data.error_msg);
                 $('#error-message-container').show();
+                $('#graph-header-container').hide();
             }
         });
 
