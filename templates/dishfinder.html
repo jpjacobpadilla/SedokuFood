@@ -6,7 +6,7 @@ Dish Finder
 {% block content%}
 <form id="dishfinder-main-form">
     <div  class="speach-bubble bubble-bottom-left">
-        <p>Input your food prefrences so I can recommend you a food schedule!</p>
+        <p>Input your food preferences so I can recommend you a food schedule!</p>
     </div>
     <div id="dishfinder-background-mainoptions-container">
         <img id="burger-pointing-img" src="{{url_for('static', filename='images/Icons/burger-pointing.png')}}">
@@ -198,14 +198,14 @@ Dish Finder
     <h3 id="error-message-js"></h3>
 </div>
 
-<div id="graph-header-container" style="display: none;">
+<!-- <div id="graph-header-container" style="display: none;">
     <h2>Your Schedule Visualized</h2>
     <div id="color-desc-gh">
         <p>Restaurants in your schedule</p>
         <p>Your estimated location</p>
     </div>
 </div>
-<div id="graph-container" style="display: none;"></div>
+<div id="graph-container" style="display: none;"></div> -->
 
 <div id="extra-space-db-page-df">&nbsp;</div>
 
@@ -216,7 +216,7 @@ Dish Finder
         $('#horizontal-scroll-container').hide();
         $('#error-message-container').hide();
         $('#search-loading-display-container').show();
-        $('#graph-header-container').hide();
+        //$('#graph-header-container').hide();
 
         $.ajax({
             data : {
@@ -278,15 +278,15 @@ Dish Finder
                 $('#horizontal-scroll-container').show();
                 $('#generate-it-button').val('Generate Again!');
 
-                $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
-                $('#graph-header-container').show();
-                $('#graph-header-container').show();
+            //  $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
+            //   $('#graph-header-container').show();
+            //   $('#graph-header-container').show();
             }
             else {
                 $('#error-message-js').text(data.error_msg);
                 $('#error-message-container').show();
-                $('#graph-header-container').hide();
-                $('#graph-header-container').hide();
+            //   $('#graph-header-container').hide();
+            //    $('#graph-header-container').hide();
             }
         });
 
