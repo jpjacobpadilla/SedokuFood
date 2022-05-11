@@ -767,15 +767,33 @@ input[type=range]:focus {
     visibility: initial;
   }
 
-.single-rb-container input[type="radio"]:after {
+  .single-rb-container input[type="radio"]:checked:before {
+    content: " ";
+    display: block;
+    background-color: var(--warmred);
+    border: .3rem solid var(--mainyellow);
+    box-shadow: 0 0 .5rem rgb(213, 140, 51);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100px;
+    margin: 0 1rem 1rem 0;
+    visibility: initial;
+  }
+
+  .single-rb-container input[type="radio"]:hover:before {
+    background-color: rgb(238, 163, 92);
+  }
+
+/* .single-rb-container input[type="radio"]:after {
     content: " ";
     display: block;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 100px;
     position: absolute;
-    top: .56rem;
-    left: .535rem;
+    left: -5%;
+    top: -5%;
+    transform: translate(5%, 5%);
     visibility: initial;
     background-color: var(--mainyellow);
 
@@ -787,7 +805,7 @@ input[type=range]:focus {
 
 .single-rb-container input[type="radio"]:checked:after {
     background-color: var(--warmred);
-  }
+  } */
 /*end of radio button css*/
 
 #submit-container {
