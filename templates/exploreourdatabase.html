@@ -84,14 +84,14 @@ Our Database
                 $('#avg-price-output').text(data.avg_price_output);
                 $('#avg-rating-output').text(data.avg_rating_output);
 
-                $('#reaserch-your-zipcode-output-container').show();
+                $('#reaserch-your-zipcode-output-container').fadeIn();
                 $('#no-zipcode-data-ed').hide();
             }
             else {
                 $('#no-data-zip').text(data.fullzip);
 
                 $('#reaserch-your-zipcode-output-container').hide();
-                $('#no-zipcode-data-ed').show();
+                $('#no-zipcode-data-ed').fadeIn();
             }
         });
 

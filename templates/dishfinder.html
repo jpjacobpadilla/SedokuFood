@@ -215,7 +215,7 @@ Dish Finder
 
         $('#horizontal-scroll-container').hide();
         $('#error-message-container').hide();
-        $('#search-loading-display-container').show();
+        $('#search-loading-display-container').fadeIn();
         //$('#graph-header-container').hide();
 
         $.ajax({
@@ -275,7 +275,7 @@ Dish Finder
                     );
                 }
 
-                $('#horizontal-scroll-container').show();
+                $('#horizontal-scroll-container').fadeIn();
                 $('#generate-it-button').val('Generate Again!');
 
             //  $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
@@ -284,7 +284,7 @@ Dish Finder
             }
             else {
                 $('#error-message-js').text(data.error_msg);
-                $('#error-message-container').show();
+                $('#error-message-container').fadeIn();
             //   $('#graph-header-container').hide();
             //    $('#graph-header-container').hide();
             }
