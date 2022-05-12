@@ -277,16 +277,24 @@ Dish Finder
 
                 $('#horizontal-scroll-container').fadeIn();
                 $('#generate-it-button').val('Generate Again!');
+                
+                if (data.location_map_valid) {
+                    $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
+                    $('#graph-header-container').show();
+                    $('#graph-header-container').show();
+                }
+                
+                else {
+                    $('#graph-header-container').hide();
+                    $('#graph-header-container').hide();
+                }
 
-            //  $('#graph-container').html('<img src="data:image/png;base64,' + data.location_map +'"/>');
-            //   $('#graph-header-container').show();
-            //   $('#graph-header-container').show();
             }
             else {
                 $('#error-message-js').text(data.error_msg);
                 $('#error-message-container').fadeIn();
-            //   $('#graph-header-container').hide();
-            //    $('#graph-header-container').hide();
+                $('#graph-header-container').hide();
+                $('#graph-header-container').hide();
             }
         });
 
