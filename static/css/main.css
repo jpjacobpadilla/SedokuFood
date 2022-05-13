@@ -13,7 +13,7 @@ body {
 /* HEADER: In MS5 I designed my own header, but I decided to copy 
 a template so I could easily make the menu resposnive.
 The responsive header was heavily based off of this example: 
-https://codepen.io/mutedblues/pen/MmPNPG*/
+https://codepen.io/mutedblues/pen/MmPNPG */
 .header {
     background-color: #fff;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
@@ -726,7 +726,7 @@ input[type=range]:focus {
     outline: none;
 }
 
-/*Initially I created my own radio-button styling,
+/* Initially I created my own radio-button styling,
  but it only worked on chrome browsers, 
  so i copied about 50% of 
  the radio button styiling from online*/
@@ -742,18 +742,20 @@ input[type=range]:focus {
     position: absolute;
     cursor: pointer;
     visibility: hidden;
-  }
+}
+
 .single-rb-container label {
     color: white;
     font-size: 1.7rem;
     font-weight: 400;
     margin: .3rem 0 0 1rem;
     display: flex;
-  }    
+}   
+
   .single-rb-container label span {
    padding-left: 3.3rem;
    margin-top: .5rem;
-  }
+}
 
 .single-rb-container input[type="radio"]:before {
     content: " ";
@@ -765,9 +767,9 @@ input[type=range]:focus {
     border-radius: 100px;
     margin: 0 1rem 1rem 0;
     visibility: initial;
-  }
+}
 
-  .single-rb-container input[type="radio"]:checked:before {
+.single-rb-container input[type="radio"]:checked:before {
     content: " ";
     display: block;
     background-color: var(--warmred);
@@ -778,35 +780,11 @@ input[type=range]:focus {
     border-radius: 100px;
     margin: 0 1rem 1rem 0;
     visibility: initial;
-  }
+}
 
-  .single-rb-container input[type="radio"]:hover:before {
+.single-rb-container input[type="radio"]:hover:before {
     background-color: rgb(238, 163, 92);
-  }
-
-/* .single-rb-container input[type="radio"]:after {
-    content: " ";
-    display: block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100px;
-    position: absolute;
-    left: -5%;
-    top: -5%;
-    transform: translate(5%, 5%);
-    visibility: initial;
-    background-color: var(--mainyellow);
-
-  }
-
-.single-rb-container input[type="radio"]:hover:after {
-    background-color: rgb(238, 163, 92);
-  }
-
-.single-rb-container input[type="radio"]:checked:after {
-    background-color: var(--warmred);
-  } */
-/*end of radio button css*/
+}
 
 #submit-container {
     margin-bottom: 5rem;
@@ -824,7 +802,7 @@ input[type=range]:focus {
 }
 
 #search-loading-display-container {
-    margin: 5rem auto 10rem auto;
+    margin: 5rem auto 2.5rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1024,10 +1002,14 @@ input[type=range]:focus {
     left: -1.5rem;
 }
 
+#extra-space {
+    margin-bottom: 3rem;
+}
 
 /* Database page*/
 #database-page-content {
     margin-top: 7rem;
+    margin-bottom: 2.3rem;
 }
 
 #nyc-rest-header-div {
@@ -1201,11 +1183,6 @@ input[type=range]:focus {
     margin: 1.2rem 5rem 1rem 5rem;
 }
 
-#extra-space-db-page-ed,
-#extra-space-db-page-df {
-    margin: 2rem;
-}
-
 /* Media Queries*/
 @media (max-width: 900px) {
     #sec3-3items-flexcontainer {
@@ -1265,7 +1242,7 @@ input[type=range]:focus {
      }
 
     #search-loading-display-container {
-        margin: 5rem 2rem 6rem 2rem;
+        margin: 5rem 2rem 2.5rem 2rem;
         column-gap: .5rem;
         flex-direction: column;
     }
@@ -1499,7 +1476,6 @@ input[type=range]:focus {
         opacity: 0;
         transition: opacity 300ms, transform 300ms;
     }
-    
     
     .header ul li:hover::after {
       opacity: 1;
