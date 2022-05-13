@@ -204,6 +204,6 @@ def dish_rec_main(request, db):
                         'addresses': addresses})
     
     except:
-        err_msg = "Uh Oh! Something happend :(  Please make the inputs more broad."
+        err_msg = "Uh Oh! No Matches were found. Please make the inputs more broad."
         return ({'answer': False,
                  'error_msg': err_msg})
